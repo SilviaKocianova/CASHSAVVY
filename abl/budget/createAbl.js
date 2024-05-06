@@ -6,7 +6,7 @@ addFormats(ajv);
 const validateDateTime = require("../../helpers/validate-date-time.js");
 ajv.addFormat("date-time", { validate: validateDateTime });
 
-const budgetDao = require("../../dao/budget-dao.js");
+const categoryDao = require("../../dao/category-dao.js");
 
 const schema = {
   type: "object",
@@ -19,10 +19,10 @@ const schema = {
 
 async function CreateAbl(req, res) {
   try {
-    let budget = req.body;
+    let category = req.body;
 
     // validate input
-    const valid = ajv.validate(schema, budget);
+    const valid = ajv.validate(schema, category);
 
     if (!valid) {
       res.status(400).json({
@@ -33,8 +33,8 @@ async function CreateAbl(req, res) {
       return;
     }
 
-    const newBudget = BudgetDao.create(budget);
-    res.json(newBudget);
+    const newCategory = categoryDao.create(category);
+    res.json(newCategory);
   } catch (e) {
     res.status(500).json({ message: e.message });
   }
