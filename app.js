@@ -8,6 +8,10 @@ app.use(express.urlencoded({ extended: true })); // podpora pro application/x-ww
 
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 const categoryController = require("./controller/category.js");
 app.use("/category", categoryController);
 
