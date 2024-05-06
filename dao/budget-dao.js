@@ -61,7 +61,7 @@ function remove(budget) {
   }
 }
 
-// Method to list categories in a folder
+// Method to list budget in a folder
 function list() {
   try {
     const files = fs.readdirSync(budgetFolderPath);
@@ -73,7 +73,7 @@ function list() {
 
     return budgetList;
   } catch (error) {
-    throw { code: "failedToListCategories", message: error.message };
+    throw { code: "failedToListBudget", message: error.message };
   }
 }
 

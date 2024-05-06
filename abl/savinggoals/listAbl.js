@@ -1,9 +1,9 @@
-const userDao = require("../../dao/budget-dao.js");
+const userDao = require("../../dao/savinggoals-dao.js");
 
 async function ListAbl(req, res) {
   try {
-    const budgetList = userDao.list();
-    res.json(budgetList);
+    const savinggoalsList = userDao.list();
+    res.json(savinggoalsList);
   } catch (e) {
     res.status(500).json({ message: e.message });
   }
