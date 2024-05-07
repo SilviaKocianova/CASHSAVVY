@@ -61,7 +61,7 @@ function remove(savinggoals) {
   }
 }
 
-// Method to list categories in a folder
+// Method to list savinggoals in a folder
 function list() {
   try {
     const files = fs.readdirSync(savinggoalsFolderPath);
@@ -73,7 +73,7 @@ function list() {
 
     return savinggoalsList;
   } catch (error) {
-    throw { code: "failedToListCategories", message: error.message };
+    throw { code: "failedToListSavinggoals", message: error.message };
   }
 }
 

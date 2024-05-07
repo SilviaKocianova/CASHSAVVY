@@ -33,7 +33,7 @@ async function CreateAbl(req, res) {
       return;
     }
 
-    const newSavinggoals = SavinggoalsDao.create(savinggoals);
+    const newSavinggoals = savinggoalsDao.create(savinggoals);
     res.json(newSavinggoals);
   } catch (e) {
     res.status(500).json({ message: e.message });

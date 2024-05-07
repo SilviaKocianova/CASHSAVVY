@@ -21,6 +21,11 @@ app.use("/expense", expenseController);
 const budgetController = require("./controller/budget.js");
 app.use("/budget", budgetController);
 
+const savinggoalsController = require("./controller/savinggoals.js");
+app.use("/savinggoals", savinggoalsController);
+
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
