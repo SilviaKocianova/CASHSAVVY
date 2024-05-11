@@ -24,6 +24,9 @@ app.use("/budget", budgetController);
 const savinggoalsController = require("./controller/savinggoals.js");
 app.use("/savinggoals", savinggoalsController);
 
+const userController = require("./controller/user.js");
+app.use("/user", userController);
+
 
 
 app.listen(port, () => {
