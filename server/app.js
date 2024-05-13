@@ -12,19 +12,19 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-const categoryController = require("./controller/category.js");
+const categoryController = require("./server/controller/category.js");
 app.use("/category", categoryController);
 
-const expenseController = require("./controller/expense.js");
+const expenseController = require("./server/controller/expense.js");
 app.use("/expense", expenseController);
 
-const budgetController = require("./controller/budget.js");
+const budgetController = require("./server/controller/budget.js");
 app.use("/budget", budgetController);
 
-const savinggoalsController = require("./controller/savinggoals.js");
+const savinggoalsController = require("./server/controller/savinggoals.js");
 app.use("/savinggoals", savinggoalsController);
 
-const userController = require("./controller/user.js");
+const userController = require("./server/controller/user.js");
 app.use("/user", userController);
 
 
