@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./app.js"; //bylo tady app, dala jsem app.js, snad je to ok
+import App from "./app"; //bylo tady app, dala jsem app.js, snad je to ok
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
