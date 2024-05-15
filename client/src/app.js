@@ -13,7 +13,7 @@ function componentStyle() {
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    backgroundColor: "#187bcd",
+    backgroundColor: "#ffffff",
     
   };
 
@@ -27,7 +27,7 @@ function componentStyle() {
           <Route path="/budget" element={<Budget />} />
           <Route path="/saving-goals" element={<SavingGoals />} />
           <Route path="/expense" element={<Expense />} />
-          {/* Add more routes as needed */}
+       
         </Routes>
       </main>
     </div>
