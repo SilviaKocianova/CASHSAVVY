@@ -6,9 +6,6 @@ import SavingGoals from './SavinggoalsButton';
 import Expense from './ExpenseButton';
 
 
-function App() {
-
-}
 
 function componentStyle() {
   return {
@@ -17,21 +14,46 @@ function componentStyle() {
     flexDirection: "column",
     overflow: "hidden",
     backgroundColor: "#187bcd",
+    
   };
 
+  function componentStyle() {
   return (
     <BrowserRouter>
+    <div>
       <NavBar />
-      <Routes>
-        <Route path="/budget" element={<Budget />} />
-        <Route path="/saving-goals" element={<SavingGoals />} />
-        <Route path="/expense" element={<Expense />} />
-        {/* Add more routes as needed */}
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/budget" element={<Budget />} />
+          <Route path="/saving-goals" element={<SavingGoals />} />
+          <Route path="/expense" element={<Expense />} />
+          {/* Add more routes as needed */}
+        </Routes>
+      </main>
+    </div>
+  </BrowserRouter>
+  );
+};
+}
+
+
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div style={componentStyle()}>
+        <NavBar />
+        <Routes>
+          <Route path="/budget" element={<Budget />} />
+          <Route path="/saving-goals" element={<SavingGoals />} />
+          <Route path="/expense" element={<Expense />} />
+          {/* Add more routes as needed */}
+        </Routes>
+      </div>
     </BrowserRouter>
   );
-
 }
+
 
 export default App;
 
