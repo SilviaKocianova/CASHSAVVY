@@ -1,11 +1,21 @@
-/* src/NavBar.css */
 .navbar {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the navbar spans the full height of the viewport */
+  width: 100%; /* Ensure the navbar spans the full width of the viewport */
+  background-color: #ffff;
+}
+
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
   .navbar-list {
     list-style: none;
     display: flex;

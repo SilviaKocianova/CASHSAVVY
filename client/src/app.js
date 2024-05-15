@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from './NavBar';
+import './NavBar.css';
 import Budget from './BudgetButton';
 import SavingGoals from './SavinggoalsButton';
 import Expense from './ExpenseButton';
@@ -20,18 +21,18 @@ function componentStyle() {
   function componentStyle() {
   return (
     <BrowserRouter>
-    <div>
-      <NavBar />
-      <main>
+      <div className="navbar">
+        <div className="navbar-container">
+          <NavBar />
+        </div>
         <Routes>
           <Route path="/budget" element={<Budget />} />
           <Route path="/saving-goals" element={<SavingGoals />} />
           <Route path="/expense" element={<Expense />} />
-       
+          {/* Add more routes as needed */}
         </Routes>
-      </main>
-    </div>
-  </BrowserRouter>
+      </div>
+    </BrowserRouter>
   );
 };
 }
