@@ -1,12 +1,10 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from './NavBar';
+import Budget from './BudgetButton';
+import SavingGoals from './SavinggoalsButton';
+import Expense from './ExpenseButton';
 
-//import Layout from "./Layout";
-//import EventList from "./EventList";
-//import UserProvider from "./UserProvider";
-//import EventListProvider from "./EventListProvider";
-//import EventProvider from "./EventProvider";
-//import EventRoute from "./EventRoute";
-//import Chart from "./Chart";
 
 function App() {
 
@@ -20,6 +18,21 @@ function componentStyle() {
     overflow: "hidden",
     backgroundColor: "#187bcd",
   };
+
+  return (
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/budget" element={<Budget />} />
+        <Route path="/saving-goals" element={<SavingGoals />} />
+        <Route path="/expense" element={<Expense />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </BrowserRouter>
+  );
+
 }
 
 export default App;
+
+
