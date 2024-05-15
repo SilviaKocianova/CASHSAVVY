@@ -3,9 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css'; 
 
-const NavBar = () => {
+
+const NavBar = ({ logo }) => {
   return (
     <nav className="navbar">
+    <div className="navbar-logo">
+      <img src={logo} alt="CashSavvy Logo" />
+    </div>
       <ul className="navbar-list">
         <li className="navbar-item">
           <Link to="/budget">

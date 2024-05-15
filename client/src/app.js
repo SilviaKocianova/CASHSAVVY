@@ -5,7 +5,8 @@ import './NavBar.css';
 import Budget from './BudgetButton';
 import SavingGoals from './SavinggoalsButton';
 import Expense from './ExpenseButton';
-
+import logo from './cashsavvy_logo.png';
+import './app.css';
 
 
 function componentStyle() {
@@ -25,6 +26,7 @@ function componentStyle() {
         <div className="navbar-container">
           <NavBar />
         </div>
+       
         <Routes>
           <Route path="/budget" element={<Budget />} />
           <Route path="/saving-goals" element={<SavingGoals />} />
@@ -43,7 +45,7 @@ function App() {
   return (
     <BrowserRouter>
       <div style={componentStyle()}>
-        <NavBar />
+      <NavBar logo={logo} />
         <Routes>
           <Route path="/budget" element={<Budget />} />
           <Route path="/saving-goals" element={<SavingGoals />} />

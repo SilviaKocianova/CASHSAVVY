@@ -7,6 +7,11 @@
   background-color: #ffff;
 }
 
+.navbar-logo {
+  width: 50px; /* Adjust the width of the logo */
+  margin-right: 40px; /* Add margin to separate logo from navigation links */
+  margin-bottom: 220px
+}
 
 .navbar-container {
   display: flex;
