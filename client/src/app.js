@@ -6,7 +6,7 @@ import Budget from './BudgetButton';
 import SavingGoals from './SavinggoalsButton';
 import Expense from './ExpenseButton';
 import logo from './cashsavvy_logo.png';
-import './app.css';
+
 
 
 function componentStyle() {
@@ -21,6 +21,7 @@ function componentStyle() {
 
   function componentStyle() {
   return (
+   
     <BrowserRouter>
       <div className="navbar">
         <div className="navbar-container">
@@ -35,6 +36,7 @@ function componentStyle() {
         </Routes>
       </div>
     </BrowserRouter>
+    
   );
 };
 }
@@ -43,6 +45,7 @@ function componentStyle() {
 
 function App() {
   return (
+    
     <BrowserRouter>
       <div style={componentStyle()}>
       <NavBar logo={logo} />
@@ -54,6 +57,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    
   );
 }
 
