@@ -19,45 +19,23 @@ function componentStyle() {
     
   };
 
-  function componentStyle() {
-  return (
-   
-    <BrowserRouter>
-      <div className="navbar">
-        <div className="navbar-container">
-          <NavBar />
-        </div>
-       
-        <Routes>
-          <Route path="/budget" element={<Budget />} />
-          <Route path="/saving-goals" element={<SavingGoals />} />
-          <Route path="/expense" element={<Expense />} />
-          {/* Add more routes as needed */}
-        </Routes>
-      </div>
-    </BrowserRouter>
-    
-  );
-};
+
 }
 
 
-
-function App() {
+export const App = () => {
   return (
-    
     <BrowserRouter>
       <div style={componentStyle()}>
-      <NavBar logo={logo} />
+        <NavBar logo={logo} />
         <Routes>
-          <Route path="/budget" element={<Budget />} />
-          <Route path="/saving-goals" element={<SavingGoals />} />
-          <Route path="/expense" element={<Expense />} />
+          <Route path="/BudgetPage" element={<Budget />} />
+          <Route path="/Saving-goalsPage" element={<SavingGoals />} />
+          <Route path="/ExpensePage" element={<Expense />} />
           {/* Add more routes as needed */}
         </Routes>
       </div>
     </BrowserRouter>
-    
   );
 }
 
