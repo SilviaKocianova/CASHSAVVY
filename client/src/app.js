@@ -1,45 +1,56 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from './NavBar';
+import { createBrowserRouter, RouterProvider, Route, Link } from 'react-router-dom';
+import NavBar from './components/NavBar';
 import './NavBar.css';
-import Budget from './BudgetButton';
-import SavingGoals from './SavinggoalsButton';
-import Expense from './ExpenseButton';
-import logo from './cashsavvy_logo.png';
+
+import DashboardPage from './pages/DashboardPage'
+import BudgetPage from './pages/BudgetPage'
+import ExpensePage from './pages/ExpensePage'
+import SavinggoalsPage from './pages/SavinggoalsPage'
+import ErrorPage from './ErrorPage';
 
 
-
-function componentStyle() {
-  return {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    backgroundColor: "#ffffff",
-    
-  };
+const componentStyle = {
+  height: "100vh",
+  display: "flex",
+  flexDirection: "column",
+  overflow: "hidden",
+  backgroundColor: "#ffffff",
+};
 
 
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <DashboardPage />,
+  },
+  
+  {
+    path: "*",
+    element: <ErrorPage />,
+  },
+  {
+    path: "Expense",
+    element: <ExpensePage />,
+  },
+  {
+    path: "Budget",
+    element: <BudgetPage />,
+  },
+  {
+    path: "Savinggoals",
+    element: <SavinggoalsPage />,
+  },
+]);
 
-
-export const App = () => {
+const App = () => {
   return (
-    <BrowserRouter>
-      <div style={componentStyle()}>
-        <NavBar logo={logo} />
-        <Routes>
-          <Route path="/BudgetPage" element={<Budget />} />
-          <Route path="/Saving-goalsPage" element={<SavingGoals />} />
-          <Route path="/ExpensePage" element={<Expense />} />
-          {/* Add more routes as needed */}
-        </Routes>
+    <RouterProvider router={router}>
+      <div style={componentStyle}>
+        {/* Your components will be rendered based on the current route */}
       </div>
-    </BrowserRouter>
+    </RouterProvider>
   );
-}
-
+};
 
 export default App;
-
-
