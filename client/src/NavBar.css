@@ -1,23 +1,26 @@
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ensure the navbar spans the full height of the viewport */
-  width: 100%; /* Ensure the navbar spans the full width of the viewport */
-  background-color: #fff;
-}
+/* NavBar.css */
 
-.navbar-logo {
-  width: 50px; /* Adjust the width of the logo */
-  margin-right: 40px; /* Add margin to separate logo from navigation links */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .navbar-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  height: 100vh; /* Ensure the container spans the full height of the viewport */
+  width: 100vw; /* Ensure the container spans the full width of the viewport */
+  background-color: #fff;
+}
+
+.navbar-logo {
+  width: 150px; /* Adjust the width of the logo */
+  margin-bottom: 10px; /* Add space between the logo and the buttons */
+  padding-right: 360px;
 }
 
 .center {

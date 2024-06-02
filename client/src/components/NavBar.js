@@ -1,15 +1,14 @@
+// NavBar.js
+
 import React from 'react';
+import '../NavBar.css';
 
 const NavBar = ({ logo }) => {
   return (
-    <nav>
+    <div className="navbar-logo">
       <img src={logo} alt="Logo" />
-   
-
-    </nav>
+    </div>
   );
 };
-
-
 
 export default NavBar;
