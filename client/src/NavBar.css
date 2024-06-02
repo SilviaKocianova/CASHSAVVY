@@ -4,13 +4,12 @@
   align-items: center;
   height: 100vh; /* Ensure the navbar spans the full height of the viewport */
   width: 100%; /* Ensure the navbar spans the full width of the viewport */
-  background-color: #ffff;
+  background-color: #fff;
 }
 
 .navbar-logo {
   width: 50px; /* Adjust the width of the logo */
   margin-right: 40px; /* Add margin to separate logo from navigation links */
-  margin-bottom: 220px
 }
 
 .navbar-container {
@@ -21,17 +20,16 @@
   width: 100%;
 }
 
-  .navbar-list {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .navbar-item img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-  
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Add gap between the buttons */
+}
+
+.button-icon,
+.expense-icon,
+.savinggoals-icon {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+}
