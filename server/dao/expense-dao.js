@@ -70,8 +70,9 @@ function list() {
       const fileData = fs.readFileSync(path.join(expenseFolderPath, file), "utf8");
       return JSON.parse(fileData);
     });
-
+    console.log(expenseList);
     return expenseList;
+    
   } catch (error) {
     throw { code: "failedToListExpenses", message: error.message };
   }

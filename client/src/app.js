@@ -9,6 +9,7 @@ import ErrorPage from './ErrorPage';
 import ExpenseManager from './components/ExpenseManager';
 import CategoryManager from './components/CategoryManager';
 
+
 const componentStyle = {
   height: "100vh",
   display: "flex",
