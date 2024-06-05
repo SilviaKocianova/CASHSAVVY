@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import editGoalsIcon from '../assets/icon_pig.png';
 import expenseBackground from '../assets/background.png'; // Correct path for the background image
+import dashboardButton from '../assets/dashboardButton.png'; // Path for the dashboard button
 
 const SavinggoalsPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   const [expenses, setExpenses] = useState([]);
@@ -167,7 +168,9 @@ const SavinggoalsPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
         </div>
       )}
 
-      <Link to="/" style={{ marginTop: '1rem' }}>Go to Dashboard</Link>
+      <a href="/">
+        <img src={dashboardButton} alt="Go to Dashboard" style={{ marginTop: '1rem' }} />
+      </a>
     </div>
   );
 };

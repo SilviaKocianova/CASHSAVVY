@@ -4,6 +4,7 @@ import axios from 'axios';
 import addExpenseIcon from '../assets/icon_money.png';
 import manageCategoriesIcon from '../assets/icon_manage.png';
 import expenseBackground from '../assets/background.png'; // Correct path for the background image
+import dashboardButton from '../assets/dashboardButton.png'; // Path for the dashboard button
 
 const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   const [expenses, setExpenses] = useState([]);
@@ -131,12 +132,23 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
                 onChange={handleEditInputChange}
                 placeholder="Expense Amount"
               />
-              <select name="categoryId"
+
+              
+
+            <select name="categoryId"
                 value={newExpense.categoryId}
                 onChange={handleInputChange}>
-                <option value="5bfdeac841bcd51cbb28a817139d33b2">Prvni</option>
-                <option value="cebc6e4de7fcb2cde2bda6b097131cd9">Druha</option>
+                     <option disabled value=""> -- select an option -- </option>
+                {categories.map(category => (
+                  
+                  <option key={category.id}
+                    value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
+
+
               <button onClick={handleEditExpenseSubmit}>Save</button>
             </div>
           ) : (
@@ -158,6 +170,7 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
               <select name="categoryId"
                 value={newExpense.categoryId}
                 onChange={handleInputChange}>
+                  <option disabled value=""> -- select an option -- </option>
                 {categories.map(category => (
                   <option key={category.id}
                     value={category.id}>
@@ -170,7 +183,9 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
           )}
         </div>
       )}
-      <Link to="/" style={{ marginTop: '1rem' }}>Go to Dashboard</Link>
+      <a href="/">
+        <img src={dashboardButton} alt="Go to Dashboard" style={{ marginTop: '1rem' }} />
+      </a>
     </div>
   );
 };
