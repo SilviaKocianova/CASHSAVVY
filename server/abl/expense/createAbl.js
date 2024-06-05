@@ -1,24 +1,7 @@
-const Ajv = require("ajv");
-const addFormats = require("ajv-formats").default;
+const Ajv = require('ajv');
 const ajv = new Ajv();
-addFormats(ajv);
 
-const validateDateTime = require("../../helpers/validate-date-time.js");
-ajv.addFormat("date-time", { validate: validateDateTime });
 
-const expenseDao = require("../../dao/expense-dao.js");
-const categoryDao = require("../../dao/category-dao.js");
-
-const schema = {
-  type: "object",
-  properties: {
-    name: { type: "string", minLength: 3 },
-    amount: { type: "number", minimum: 1 },
-    categoryId: { type: "string" },
-  },
-  required: ["name", "amount", "categoryId"],
-  additionalProperties: false,
-};
 
 async function CreateAbl(req, res) {
   try {
@@ -36,7 +19,10 @@ async function CreateAbl(req, res) {
       return;
     }
 
-    const category = categoryDao.get(expense.categoryId)
+    // Log the expense data being validated
+    console.log('Valid expense data:', expense);
+
+    const category = await categoryDao.get(expense.categoryId); // Use await here
 
     if (!category) {
       res.status(400).json({
@@ -47,7 +33,7 @@ async function CreateAbl(req, res) {
       return;
     }
 
-    const newExpense = expenseDao.create(expense);
+    const newExpense = await expenseDao.create(expense); // Use await here
     res.json(newExpense);
   } catch (e) {
     res.status(500).json({ message: e.message });

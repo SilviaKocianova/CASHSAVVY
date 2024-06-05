@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import addExpenseIcon from '../assets/icon_money.png';
+import manageCategoriesIcon from '../assets/icon_manage.png';
+import expenseBackground from '../assets/background.png'; // Correct path for the background image
 
 const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   const [expenses, setExpenses] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [newExpense, setNewExpense] = useState({ name: '', amount: '', categoryId: '' });
   const [editingExpense, setEditingExpense] = useState(null);
@@ -12,6 +16,12 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
     axios.get('/expense/list')
       .then(response => setExpenses(response.data))
       .catch(error => console.error('Error fetching expenses:', error));
+  }, []);
+
+  useEffect(() => {
+    axios.get('/category/list')
+      .then(response => setCategories(response.data))
+      .catch(error => console.error('Error fetching categories:', error));
   }, []);
 
   const handleAddExpenseClick = () => setShowMenu(!showMenu);
@@ -24,13 +34,29 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
     }));
   };
 
+  //parst expense neco takovyho
+
+  //co poslu na backend
   const handleAddExpense = () => {
-    axios.post('/expense/create', newExpense)
+    const parsedNewExpense = {
+      name: newExpense.name,
+      amount: parseInt(newExpense.amount), //obalim 
+      categoryId: newExpense.categoryId,
+
+    }
+
+    console.log('Adding new expense:', parsedNewExpense); // Log the new expense data
+    axios.post('/expense/create', parsedNewExpense)
       .then(response => {
         setExpenses([...expenses, response.data]);
         setNewExpense({ name: '', amount: '', categoryId: '' });
       })
-      .catch(error => console.error('Error adding expense:', error));
+      .catch(error => {
+        console.error('Error adding expense:', error);
+        if (error.response) {
+          console.error('Validation errors:', error.response.data.validationError);
+        }
+      });
     setShowMenu(false);
   };
 
@@ -66,8 +92,8 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   };
 
   return (
-    <div>
-      <h2>Expense Page</h2>
+    <div style={{ backgroundImage: `url(${expenseBackground})`, backgroundSize: 'cover', minHeight: '100vh' }}> {/* Apply the background image */}
+      <h2>Expense</h2>
       {expenses.map(expense => (
         <div key={expense.id}>
           <p>{expense.name}: ${expense.amount}</p>
@@ -75,7 +101,9 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
           <button onClick={() => startEditExpense(expense)}>Edit</button>
         </div>
       ))}
-      <button onClick={handleAddExpenseClick}>Add Expense</button>
+       <a href="#" onClick={handleAddExpenseClick}>
+        <img src={addExpenseIcon} alt="Add Expense" /> {/* Use the imported icon */}
+      </a>
       {showMenu && (
         <div>
           {editingExpense ? (
@@ -94,13 +122,12 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
                 onChange={handleEditInputChange}
                 placeholder="Expense Amount"
               />
-              <input
-                type="text"
-                name="categoryId"
-                value={editingExpense.categoryId}
-                onChange={handleEditInputChange}
-                placeholder="Category ID"
-              />
+              <select name="categoryId"
+                value={newExpense.categoryId}
+                onChange={handleInputChange}>
+                <option value="5bfdeac841bcd51cbb28a817139d33b2">Prvni</option>
+                <option value="cebc6e4de7fcb2cde2bda6b097131cd9">Druha</option>
+              </select>
               <button onClick={handleEditExpenseSubmit}>Save</button>
             </div>
           ) : (
@@ -119,22 +146,25 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
                 onChange={handleInputChange}
                 placeholder="Expense Amount"
               />
-              <input
-                type="text"
-                name="categoryId"
+              <select name="categoryId"
                 value={newExpense.categoryId}
-                onChange={handleInputChange}
-                placeholder="Category ID"
-              />
+                onChange={handleInputChange}>
+                {categories.map(category => (
+                  <option key={category.id}
+                    value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
               <button onClick={handleAddExpense}>Add</button>
             </div>
           )}
         </div>
       )}
-      <button onClick={toggleCategoryManager}>Manage Categories</button>
-      <Link to="/Expense">Go to Expense Page</Link>
-      <Link to="/Budget">Go to Budget Page</Link>
-      <Link to="/Savinggoals">Go to Saving Goals Page</Link>
+      <a href="#" onClick={toggleCategoryManager}>
+        <img src={manageCategoriesIcon} alt="Manage Categories" /> {/* Use the imported icon */}
+      </a>
+      <Link to="/">Go to Dashboard</Link>
     </div>
   );
 };
