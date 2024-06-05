@@ -34,15 +34,11 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
     }));
   };
 
-  //parst expense neco takovyho
-
-  //co poslu na backend
   const handleAddExpense = () => {
     const parsedNewExpense = {
       name: newExpense.name,
       amount: parseInt(newExpense.amount), //obalim 
       categoryId: newExpense.categoryId,
-
     }
 
     console.log('Adding new expense:', parsedNewExpense); // Log the new expense data
@@ -92,7 +88,15 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${expenseBackground})`, backgroundSize: 'cover', minHeight: '100vh' }}> {/* Apply the background image */}
+    <div style={{ 
+      backgroundImage: `url(${expenseBackground})`, 
+      backgroundSize: 'cover', 
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
       <h2>Expense</h2>
       {expenses.map(expense => (
         <div key={expense.id}>
@@ -101,9 +105,14 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
           <button onClick={() => startEditExpense(expense)}>Edit</button>
         </div>
       ))}
-       <a href="#" onClick={handleAddExpenseClick}>
-        <img src={addExpenseIcon} alt="Add Expense" /> {/* Use the imported icon */}
-      </a>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <a href="#" onClick={handleAddExpenseClick} style={{ marginRight: '1rem' }}>
+          <img src={addExpenseIcon} alt="Add Expense" /> {/* Use the imported icon */}
+        </a>
+        <a href="#" onClick={toggleCategoryManager}>
+          <img src={manageCategoriesIcon} alt="Manage Categories" /> {/* Use the imported icon */}
+        </a>
+      </div>
       {showMenu && (
         <div>
           {editingExpense ? (
@@ -161,10 +170,7 @@ const ExpensePage = ({ toggleExpenseManager, toggleCategoryManager }) => {
           )}
         </div>
       )}
-      <a href="#" onClick={toggleCategoryManager}>
-        <img src={manageCategoriesIcon} alt="Manage Categories" /> {/* Use the imported icon */}
-      </a>
-      <Link to="/">Go to Dashboard</Link>
+      <Link to="/" style={{ marginTop: '1rem' }}>Go to Dashboard</Link>
     </div>
   );
 };

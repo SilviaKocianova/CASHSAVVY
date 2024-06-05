@@ -87,7 +87,15 @@ const SavinggoalsPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${expenseBackground})`, backgroundSize: 'cover', minHeight: '100vh' }}>
+    <div style={{ 
+      backgroundImage: `url(${expenseBackground})`, 
+      backgroundSize: 'cover', 
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
       <h2>Saving Goals</h2>
       {expenses.map(expense => (
         <div key={expense.id}>
@@ -97,7 +105,7 @@ const SavinggoalsPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
         </div>
       ))}
 
-      <a href="#" onClick={handleAddExpenseClick}>
+      <a href="#" onClick={handleAddExpenseClick} style={{ marginTop: '1rem' }}>
         <img src={editGoalsIcon} alt="Edit Goals" />
       </a>
 
@@ -159,7 +167,7 @@ const SavinggoalsPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
         </div>
       )}
 
-      <Link to="/">Go to Dashboard</Link>
+      <Link to="/" style={{ marginTop: '1rem' }}>Go to Dashboard</Link>
     </div>
   );
 };

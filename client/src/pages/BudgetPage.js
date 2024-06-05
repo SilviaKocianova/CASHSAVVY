@@ -86,15 +86,16 @@ const BudgetPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${expenseBackground})`, backgroundSize: 'cover', minHeight: '100vh' }}>
+    <div style={{ 
+      backgroundImage: `url(${expenseBackground})`, 
+      backgroundSize: 'cover', 
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
       <h2>Budget</h2>
-      {expenses.map(expense => (
-        <div key={expense.id}>
-          <p>{expense.name}: ${expense.amount}</p>
-          <button onClick={() => handleDeleteExpense(expense.id)}>Delete</button>
-          <button onClick={() => startEditExpense(expense)}>Edit</button>
-        </div>
-      ))}
       <a href="#" onClick={handleAddExpenseClick}>
         <img src={editBudgetIcon} alt="Edit Budget" />
       </a>
@@ -158,7 +159,7 @@ const BudgetPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
           )}
         </div>
       )}
-      <Link to="/">Go to Dashboard</Link>
+      <Link to="/" style={{ marginTop: '1rem' }}>Go to Dashboard</Link>
     </div>
   );
 };
