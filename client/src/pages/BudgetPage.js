@@ -130,19 +130,13 @@ const BudgetPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
             </div>
           ) : (
             <div>
-              <input
-                type="text"
-                name="name"
-                value={newExpense.name}
-                onChange={handleInputChange}
-                placeholder="Expense Name"
-              />
+            
               <input
                 type="number"
                 name="amount"
                 value={newExpense.amount}
                 onChange={handleInputChange}
-                placeholder="Expense Amount"
+                placeholder="Budget Limit"
               />
               <select
                 name="categoryId"

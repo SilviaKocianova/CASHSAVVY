@@ -143,14 +143,14 @@ const SavinggoalsPage = ({ toggleExpenseManager, toggleCategoryManager }) => {
                 name="name"
                 value={newExpense.name}
                 onChange={handleInputChange}
-                placeholder="Expense Name"
+                placeholder="Goal Name"
               />
               <input
                 type="number"
                 name="amount"
                 value={newExpense.amount}
                 onChange={handleInputChange}
-                placeholder="Expense Amount"
+                placeholder="Goal Amount"
               />
               <select name="categoryId"
                 value={newExpense.categoryId}
