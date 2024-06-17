@@ -1,4 +1,4 @@
-# Cashsavvy
+# Ca$hsavvy
 
 ![Late Night Programming](https://i.pinimg.com/originals/87/6e/4a/876e4a4651b3bbf00faa84d7c53a9dd9.gif)
 
@@ -7,7 +7,7 @@
 Cashsavvy is a full-stack application designed to help users save money efficiently. Built with Express, Node.js, and React, this project features both backend and frontend components to provide a seamless user experience. The app includes various functionalities such as creating saving goals, tracking expenses, and setting up budgets.
 
 
-![Expense Overview](https://drive.google.com/file/d/1ppsfr9hK5DbomWgfpRuQal5afYljA1cZ/view?usp=sharing)
+![Expense Overview](https://ibb.co/ZBfP972)
 
 
 ## Key Features
@@ -41,10 +41,10 @@ Cashsavvy is a full-stack application designed to help users save money efficien
 
 ## Learning Outcomes
 
-- Better understanding of development using  Express, React and Node.js
+- Enhanced understanding of development using  Express, React and Node.js
 - Practical experience in developing and deploying a comprehensive money-saving application.
-- Enhanced skills in integrating frontend and backend functionalities.
-- Improved understanding of financial management applications.
+- Improved skills in integrating frontend and backend functionalities.
+- Deeper insight into financial management application development.
 
 ## NOTE
 The app is currently under active development as I continue to implement new ideas from users feedback. Some functions may not work 100%.
