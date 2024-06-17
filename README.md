@@ -7,7 +7,7 @@
 Cashsavvy is a full-stack application designed to help users save money efficiently. Built with Express, Node.js, and React, this project features both backend and frontend components to provide a seamless user experience. The app includes various functionalities such as creating saving goals, tracking expenses, and setting up budgets.
 
 
-![Expense Overview](<img src="https://i.ibb.co/wSdXtjc/expense.png" alt="expense" border="0">)
+![Expense Overview](https://i.ibb.co/wSdXtjc/expense.png)
 
 
 ## Key Features
